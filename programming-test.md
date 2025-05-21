@@ -39,15 +39,15 @@ class Program
 
 ### 2. **Explain the MVC Pattern**  
    - What does MVC stand for?
-   <pre>
-   The MVC stands for Model-View-Controller. It is a design pattern which is used to organize code in a project so that everything is neatly separated by role. It helps developers manage large applications better.
-   </pre>
+   
+   >The MVC stands for Model-View-Controller. It is a design pattern which is used to organize code in a project so that everything is neatly separated by role. It helps developers manage large applications better.
+   
    - Explain the pattern in detail.
-   ```
-    - Model: Manages the data and business logic, a defined relational structure of connected database. It also contains logic/functions  to perfom CRUD (Create, Reead, Update & Delete) operations on database.
-    - View: Handles how the data is displayed to the user.(also User Interface). It doesn’t interact directly with the model—usually and  does this through the controller.
-    - Controller: Responds to user input and interacts with the model and view. Updates the view based on model changes.
-   ```
+   >
+      - Model: Manages the data and business logic, a defined relational structure of connected database. It also contains logic/functions  to perfom CRUD (Create, Reead, Update & Delete) operations on database.
+      - View: Handles how the data is displayed to the user.(also User Interface). It doesn’t interact directly with the model—usually and  does this through the controller.
+      - Controller: Responds to user input and interacts with the model and view. Updates the view based on model changes.
+
    - What are some use cases for this framework?
    ```
    MVC pattern is widely used in web and desktop application development where the application is being updated frequently based on user interactions. This pattern helps developers to work on different aspects of applications (e.g. frontend and backend)
