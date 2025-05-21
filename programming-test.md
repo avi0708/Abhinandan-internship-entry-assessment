@@ -14,7 +14,7 @@ Write a program in the language of your choice where:
 3. Write “Lucky number!” after every random number that is divisible by 7.
 
 > Try to keep the procedure as short as possible.
-```mermaid
+```
 class Program
 {
     static void Main()
@@ -35,9 +35,7 @@ class Program
 
 ### 1. **What is your understanding of the term “Design Patterns”?**  
    Provide a description in your own words.
-   ```
-   Design patterns provides us with resuable solutions to common problems that developers face when designing and building software. They also define best practices that help structure code logically and consistently, often leading to more understandable, maintainable and flexible systems.
-   ```
+   > Design patterns provides us with resuable solutions to common problems that developers face when designing and building software. They also define best practices that help structure code logically and consistently, often leading to more understandable, maintainable and flexible systems.
 
 ### 2. **Explain the MVC Pattern**  
    - What does MVC stand for?
