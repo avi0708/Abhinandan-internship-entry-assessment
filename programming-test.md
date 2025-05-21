@@ -43,56 +43,58 @@ class Program
    >The MVC stands for Model-View-Controller. It is a design pattern which is used to organize code in a project so that everything is neatly separated by role. It helps developers manage large applications better.
    
    - Explain the pattern in detail.
-   >
-      - Model: Manages the data and business logic, a defined relational structure of connected database. It also contains logic/functions  to perfom CRUD (Create, Reead, Update & Delete) operations on database.
-      - View: Handles how the data is displayed to the user.(also User Interface). It doesn’t interact directly with the model—usually and  does this through the controller.
-      - Controller: Responds to user input and interacts with the model and view. Updates the view based on model changes.
+   > - Model: Manages the data and business logic, a defined relational structure of connected database.
+        It also contains logic/functions  to perfom CRUD (Create, Reead, Update & Delete) operations on database.
+   > - View: Handles how the data is displayed to the user.(also User Interface).
+        It doesn’t interact directly with the model—usually and  does this through the controller.
+   > - Controller: Responds to user input and interacts with the model and view.
+        Updates the view based on model changes.
 
    - What are some use cases for this framework?
-   ```
-   MVC pattern is widely used in web and desktop application development where the application is being updated frequently based on user interactions. This pattern helps developers to work on different aspects of applications (e.g. frontend and backend)
+   > MVC pattern is widely used in web and desktop application development where the application is being updated frequently  based on user interactions. This pattern helps developers to work on different aspects of applications (e.g. frontend and backend)
    Creating a basic application to perform CRUD operations on a database.
-   ```
+
 
 ### 3. **List three other design patterns**  
    - Provide names and details for three additional design patterns.
    - Explain how you have used those patterns in the past and how they have solved your problem  
    - Use diagrams to explain the design patterns.
    #### a) **Singelton pattern**
-   ```
-   This pattern ensures that a class has only one instance and provides a global point of access to that instance.
 
-   We utilised this pattern to:
-      -  initialize the test procedure with connection to linux test system, logging and setting environment valriables.
-      -  define a single global connection to the linux system and define basic functions like [PressXY,PressID, GetActiveWindow,etc] that we were developing automated test for.
-      -  contain logs and generate a single log file.
-      -  store different button ID's and screen ID's which were available on the test linux system's UI, so that it can be used just by accesing the variables which contained the ID of objects on UI.
-      -  windows regex is also a great example of singleton design, we used to utlize this to keep track to device configuration of test station.
-   
-   Basic Design:
-   +------------------+
-   |   Singleton     |       (1) Global Access
-   +------------------+<-----------------+
-   | - instance      |                   |
-   +------------------+                  |
-   | + getInstance() |                   |
-   +------------------+                  |
-         |                               |
-         v                               |
-   +------------------+                  |
-   |  Client         |-------------------+
-   +------------------+
+   > This pattern ensures that a class has only one instance and provides a global point of access to that instance.
+   >
+   > We utilised this pattern to:
+   >    -  initialize the test procedure with connection to linux test system, logging and setting environment valriables.
+   >    -  define a single global connection to the linux system and define basic functions like [PressXY,PressID, GetActiveWindow,etc] that we were developing automated test for.
+   >    -  contain logs and generate a single log file.
+   >    -  store different button ID's and screen ID's which were available on the test linux system's UI, so that it can be used just by accesing the variables which contained the ID of objects on UI.
+   >    -  windows regex is also a great example of singleton design, we used to utlize this to keep track to device configuration of test station.
+   >
+   > Basic Design:
+   ```
+      +------------------+
+      |   Singleton     |       (1) Global Access
+      +------------------+<-----------------+
+      | - instance      |                   |
+      +------------------+                  |
+      | + getInstance() |                   |
+      +------------------+                  |
+            |                               |
+            v                               |
+      +------------------+                  |
+      |  Client         |-------------------+
+      +------------------+
    ```
    #### b) **Adapter pattern**
+
+   > Converts one interface to another interface, or, it allows incompatible interfaces to work together. It acts as a bridge between two incompatible interfaces by converting the interface of a class into another interface that a client expects.
+   > 
+   > Since, the test application and framework was based on C#, we utlized this pattern to:
+   >    - communicate with our linux based test system.
+   >    - communicate with a connected embedded system which generate pulse values.
+   > 
+   > Basic design:
    ```
-   Converts one interface to another interface, or, it allows incompatible interfaces to work together. It acts as a bridge between two incompatible interfaces by converting the interface of a class into another interface that a client expects.
-
-   Since, the test application and framework was based on C#, we utlized this pattern to:
-      - communicate with our linux based test system.
-      - communicate with a connected embedded system which generate pulse values.
-   
-
-   Basic design:
      +----------------------------+
      |      Client (Program)      |
      |  (Wants to run Linux cmd)  |
@@ -118,14 +120,15 @@ class Program
      +-----------------------------+
    ```
    #### c) **Observer pattern**
+   > This pattern is used when a objects state changes and all dependent objects needs to be notified automatically.
+   > 
+   > We utlised this pattern to:
+   >    -  update the test framework about the state change of our linux test device.
+   >    - if changes are not updated then repeat certain steps else proceed to next step.
+   >    - log the information about change in test system state.
+   > 
+   > Basic structure:
    ```
-   This pattern is used when a objects state changes and all dependent objects needs to be notified automatically.
-
-   We utlised this pattern to:
-      -  update the test framework about the state change of our linux test device.
-      - if changes are not updated then repeat certain steps else proceed to next step.
-      - log the information about change in test system state.
-   Basic structure:
 +------------------------+
 | LinuxDeviceConnection  |  <-- Subject
 +------------------------+
@@ -141,7 +144,6 @@ class Program
 +--------------------+     +-----------------+
 | OnDataReceived()   |     | OnDataReceived()|
 +--------------------+     +-----------------+
-
 ```
 ---
 
@@ -242,13 +244,13 @@ C says: Hello from C
 
 ### 2. **Key Questions**  
    - Are you able to directly create a new instance of `ObjectA`? Please explain your answer. 
-   ```
-   We cannot direct create a new instance of `ObjectA` because it is an abstract class and abstract class serves as a template for other classes. It is also incomplete by design (blueprint).
-   ```
+
+   > We cannot direct create a new instance of `ObjectA` because it is an abstract class and abstract class serves as a template for other classes. It is also incomplete by design (blueprint).
+
    - Given an instance of `ObjectC`, are you able to call the method `PrintMessage` defined in `ObjectB`? Please explain your answer.
-   ```
-   No, since the function is a private function. It can be only accessed from inside of class C.
-   ```
+ 
+   > No, since the function is a private function. It can be only accessed from inside of class C.
+
    - Try to explain as many key features of object-oriented programming as you can find in this example.
   
       -  **Abstraction** : Hiding internal details and showing only the essential features of an object.
@@ -307,50 +309,43 @@ C says: Hello from C
 This exercise focuses on strategies for working with existing code bases and ensuring the software remains maintainable as new features and requirements are introduced.
 
 ### 1. **Working with Existing Code**  
-- How would you approach understanding and contributing to an existing code base with minimal disruption? 
-```
-  - Review documentation and code structure.
-  - Identify core modules and their relationships.
-  - Use debugging and breakpoints to see code flow.
-  - Run tests and examine logs/output.
-  - Start with small, non-invasive changes.
-  - Seek guidance from team members when needed.
-```
+- How would you approach understanding and contributing to an existing code base with minimal disruption?
+
+  > - Review documentation and code structure.
+  > - Identify core modules and their relationships.
+  > - Use debugging and breakpoints to see code flow.
+  > - Run tests and examine logs/output.
+  > - Start with small, non-invasive changes.
+  > - Seek guidance from team members when needed.
+
 - What practices would you follow to ensure your changes integrate well with the current structure?  
-```
-   - Follow existing coding standards and conventions.
-   - Ensure changes are tested, preferably with unit tests.
-   - Request code reviews for feedback.
-   - Use version control to manage changes and integrate safely.
-```
+   > - Follow existing coding standards and conventions.
+   > - Ensure changes are tested, preferably with unit tests.
+   > - Request code reviews for feedback.
+   > - Use version control to manage changes and integrate safely.
 
 ### 2. **Ensuring Maintainability**  
 - What techniques would you use to keep the code base clean, modular, and easy to maintain as new features are added? 
-```
-   - Follow SOLID principles.
-   - Use clear naming and modular architecture.
-   - Refactor to reduce duplication and complexity.
-```
+   > - Follow SOLID principles.
+   > - Use clear naming and modular architecture.
+   > - Refactor to reduce duplication and complexity.
+
 - How would you handle code documentation and testing to support long-term maintainability? 
-```
-   - Document complex logic and decisions directly in code.
-   - Ensure high test coverage with unit and integration tests.
-   - Use automated testing.
-   - Keep tests updated with code changes.
-```
+   > - Document complex logic and decisions directly in code.
+   > - Ensure high test coverage with unit and integration tests.
+   > - Use automated testing.
+   > - Keep tests updated with code changes.
+
 
 ### 3. **Balancing Flexibility and Stability**  
 - How would you design or refactor the software to make it flexible for future changes while ensuring the existing functionality remains stable?
-```
-   - Use separation of concerns and configuration files to make components flexible.
-   - Maintain backward compatibility and versioned APIs.
-   - Write regression tests to prevent breaking changes.
-``` 
+   > - Use separation of concerns and configuration files to make components flexible.
+   > - Maintain backward compatibility and versioned APIs.
+   > - Write regression tests to prevent breaking changes.
+
 - Which design patterns or principles would you apply to achieve this balance
-```
-   - Apply Strategy, Factory, and Observer patterns for flexibility.
-   - Follow SOLID principles for maintainability and extensibility.
-   - Use Dependency Injection for decoupling components.
-   - Apply CI/CD pipelines for smooth integration.
-```
+   > - Apply Strategy, Factory, and Observer patterns for flexibility.
+   > - Follow SOLID principles for maintainability and extensibility.
+   > - Use Dependency Injection for decoupling components.
+   > - Apply CI/CD pipelines for smooth integration.
 ---
