@@ -14,7 +14,7 @@ Write a program in the language of your choice where:
 3. Write “Lucky number!” after every random number that is divisible by 7.
 
 > Try to keep the procedure as short as possible.
-```
+```mermaid
 class Program
 {
     static void Main()
