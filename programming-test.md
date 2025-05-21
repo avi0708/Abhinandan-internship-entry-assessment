@@ -15,27 +15,16 @@ Write a program in the language of your choice where:
 
 > Try to keep the procedure as short as possible.
 ```
-using System;
-
 class Program
 {
     static void Main()
     {
-        Random rnd = new Random();
+        var rnd = new Random();
         for (int i = 1; i <= 100; i++)
         {
             int num = rnd.Next(1, 101);
-            Console.Write($"{i}: {num}");
-            if (num % 7 == 0)
-            {
-                Console.Write(" - Lucky number!");
-            }
-            Console.WriteLine();
-
-            if (i % 5 == 0)
-            {
-                Console.WriteLine("---");
-            }
+            Console.WriteLine($"{i}: {num}" + (num % 7 == 0 ? " - Lucky number!" : ""));
+            if (i % 5 == 0) Console.WriteLine("---");
         }
     }
 }
